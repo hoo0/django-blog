@@ -10,8 +10,8 @@
 └───────────────────────────────────────────────┘
 ```
 
-# goormIDE
-Welcome to goormIDE!
+# django
+장고 공부하기
 
 goormIDE is a powerful cloud IDE service to maximize productivity for developers and teams.  
 **DEVELOP WITH EXCELLENCE**  
@@ -21,13 +21,16 @@ goormIDE is a powerful cloud IDE service to maximize productivity for developers
 
 ## 🔧 Tip & Guide
 
-* Command feature
-	* You can simply run your script using the shortcut icons on the top right.
-	* Check out `PROJECT > Common/Build/Run/Test/Find Command` in the top menu.
-	
-* Get URL and Port
-	* Click `PROJECT > URL/PORT` in top menu bar.
-	* You can get default URL/Port and add URL/Port in the top menu.
+* db. 새 모델 테이블 생성
+	* python manage.py makemigrations blog
+
+* 관리자 패널에 Comment 모델 등록
+    * @ blog/admin.py
+    * admin.site.register(Comment)
+
+* 서버기동
+    * python manage.py runserver
+
 
 * Useful shortcut
 	

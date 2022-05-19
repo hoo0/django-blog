@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('blog.urls')),
     
     path('login/', views.LoginView.as_view(), name='login'), # 기본템플릿: registration/login.html
-    path('logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
+    path('logout/', views.LogoutView.as_view(), name='logout'), #redirect: naext_page='/'
 ]
