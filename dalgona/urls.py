@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views
+from zenith import urls as zenithUrls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('zenith/', include(zenithUrls)), # include('zenith.urls')
     
     path('login/', views.LoginView.as_view(), name='login'), # 기본템플릿: registration/login.html
-    path('logout/', views.LogoutView.as_view(), name='logout'), #redirect: naext_page='/'
+    path('logout/', views.LogoutView.as_view(), name='logout') #redirect: naext_page='/'
 ]

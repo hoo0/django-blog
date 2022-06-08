@@ -31,6 +31,14 @@ goormIDE is a powerful cloud IDE service to maximize productivity for developers
 * 서버기동
     * python manage.py runserver
 
+* DRF(Django Rest Freamework) CORS policy
+    * pip install django-cors-headers
+    * settings.py
+        ** INSTALLED_APPS - corsheaders
+        ** MIDDLEWARE - 맨위 corsheaders.middleware.CorsMiddleware
+        ** CORS_ORIGIN_ALLOW_ALL = True
+        ** CORS_ALLOW_CREDENTIALS = True
+
 
 * Useful shortcut
 	

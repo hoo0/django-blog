@@ -37,10 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'blog',
+    'zenith',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,6 +119,10 @@ USE_L10N = True
 USE_TZ = True
 
 
+# cors
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -125,3 +133,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'zenith.utils.custom_exception_handler'
+}
+
+
+# zenith
+ZENITH_DOMAIN = 'http://182.223.25.170:8507'
+ZENITH_URL = {
+    'login': '/Api/Login.aspx',
+    'control': '/Api/Control.aspx'
+}
+
+# http://182.223.25.170:8507/Api/Login.aspx?_={{timestamp}}&loginID=jae21&password=****
+# http://182.223.25.170:8507/Api/Control.aspx?uid=0010203806&_={{timestamp}}&type=list
+# http://182.223.25.170:8507/Api/Control.aspx?uid=0010203806&_={{timestamp}}&type=light&code=lt03&cmd=get
+# http://182.223.25.170:8507/Api/Control.aspx?uid=0010203806&_={{timestamp}}&type=light&code=lt03&cmd=set&power=100
+# http://182.223.25.170:8507/Api/Control.aspx?uid=0010203806&_={{timestamp}}&type=ac&code=ac01&cmd=set&cmd2=power&power=1
+

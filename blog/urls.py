@@ -1,17 +1,25 @@
 from django.urls import path
 
-from . import views
+from . import views, api_views #, zenith_api_views
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new', views.post_new, name='post_new'),
     path('post/<int:pk>/edit', views.post_edit, name='post_edit'),
-    path('drafts/', views.post_draft_list, name='post_draft_list'),
-    path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
-    path('post/<int:pk>/remove/', views.post_remove, name='post_remove'),
+    path('drafts', views.post_draft_list, name='post_draft_list'),
+    path('post/<int:pk>/publish', views.post_publish, name='post_publish'),
+    path('post/<int:pk>/remove', views.post_remove, name='post_remove'),
+    #comment
+    path('post/<int:pk>/comment', views.add_comment_to_post, name='add_comment_to_post'),
+    path('comment/<int:pk>/approve', views.comment_approve, name='comment_approve'),
+    path('comment/<int:pk>/remove', views.comment_remove, name='comment_remove'),
     
-    path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
-    path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
-    path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
+    #api
+    path('api/post', api_views.PostList.as_view()),
+    path('api/post/<int:pk>/', api_views.PostDetail.as_view()),
+    
+    #zenith
+    # path('zenith/api/list', zenith_api_views.DeviceList.as_view()),
+    # path('zenith/api/login', zenith_api_views.DeviceList.as_view()),
 ]
