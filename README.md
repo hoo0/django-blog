@@ -18,11 +18,25 @@ goormIDE is a powerful cloud IDE service to maximize productivity for developers
 
 `Happy coding! The goormIDE team`
 
+* todo
+	* 배포체계 - github or
+	* 서버구성 - nginx, venv, supervisor/systemd, wsgi
+
 
 ## 🔧 Tip & Guide
 
+* settings변경사항 반영
+    * python manage.py migrate
+
+* app 만들기
+	* python manage.py startapp blog
+
 * db. 새 모델 테이블 생성
 	* python manage.py makemigrations blog
+	* python manage.py migrate blog
+
+* 관리자. superuser 생성
+	* python manage.py createsuperuser
 
 * 관리자 패널에 Comment 모델 등록
     * @ blog/admin.py
@@ -39,20 +53,3 @@ goormIDE is a powerful cloud IDE service to maximize productivity for developers
         ** CORS_ORIGIN_ALLOW_ALL = True
         ** CORS_ALLOW_CREDENTIALS = True
 
-
-* Useful shortcut
-	
-| Shortcuts name     | Command (Mac) | Command (Window) |
-| ------------------ | :-----------: | :--------------: |
-| Copy in Terminal   | ⌘ + C         | Ctrl + Shift + C |
-| Paste in Terminal  | ⌘ + V         | Ctrl + Shift + V |
-| Search File        | ⌥ + ⇧ + F     | Alt + Shift + F  |
-| Terminal Toggle    | ⌥ + ⇧ + B     | Alt + Shift + B  |
-| New Terminal       | ⌥ + ⇧ + T     | Alt + Shift + T  |
-| Code Formatting    | ⌥ + ⇧ + P     | Alt + Shift + P  |
-| Show All Shortcuts | ⌘ + H         | Ctrl + H         |
-
-## 💬 Support & Documentation
-
-Visit [https://ide.goorm.io](https://ide.goorm.io) to support and learn more about using goormIDE.  
-To watch some usage guides, visit [https://help.goorm.io/en/goormide](https://help.goorm.io/en/goormide)

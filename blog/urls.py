@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views, api_views #, zenith_api_views
 
@@ -19,7 +19,4 @@ urlpatterns = [
     path('api/post', api_views.PostList.as_view()),
     path('api/post/<int:pk>/', api_views.PostDetail.as_view()),
     
-    #zenith
-    # path('zenith/api/list', zenith_api_views.DeviceList.as_view()),
-    # path('zenith/api/login', zenith_api_views.DeviceList.as_view()),
 ]

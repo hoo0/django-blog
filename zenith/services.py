@@ -77,6 +77,29 @@ class Services:
             raise AppException(r.status_code, 'error', 'error')
 
     @staticmethod
+    def proxy(request):
+        headers = {'Accept': 'application/json',
+                  'User-Agent' : 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
+        path = request.GET.get('path')
+        method = request.GET.get('method')
+        # print('request.GET.dict()=', request.GET.dict())
+        
+        path = urllib.parse.unquote(path)
+        print('path=', path)
+        params = request.GET.dict()
+        # params['sid'] = urllib.parse.quote(params['sid'])
+        del params['path']
+        print('params=', params)
+
+        r = requests.post(path, headers=headers, params=params, timeout=5.0)
+
+        if r.status_code == 200:
+            data = r.json()
+            return data
+        else:
+            raise AppException(r.status_code, 'error', 'error')
+
+    @staticmethod
     def proxy_get(request):
         headers = {'Accept': 'application/json',
                   'User-Agent' : 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}

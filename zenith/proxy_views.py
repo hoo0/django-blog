@@ -9,6 +9,11 @@ from .services import Services
 
 # Create your views here.
 
+class Proxy(APIView):
+    def post(self, request):
+        data = Services.proxy(request)
+        return Response(data)
+    
 class Get(APIView):
     def get(self, request):
         data = Services.proxy_get(request)

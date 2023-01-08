@@ -7,7 +7,8 @@ from rest_framework.views import APIView
 from .app_exception import AppException
 from .services import Services #device_list, login
 
-# Create your views here.
+def Main(request):
+    return render(request, 'zenith/main.html')
 
 class Login(APIView):
     def get(self, request):
